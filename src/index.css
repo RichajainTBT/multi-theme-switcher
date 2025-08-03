@@ -1,13 +1,83 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.theme1 {
+  --bg: #f9fafb; 
+  --text: #111827;
+  --font: 'Inter', sans-serif;
+  --layout: block;
+  --card-bg: #ffffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.theme2 {
+  --bg: #111827; 
+  --text: #f9fafb; 
+  --font: 'Georgia', serif;
+  --layout: flex;
+  --card-bg: #1f2937; 
 }
+
+.theme3 {
+  --bg: #fff7ed; 
+  --text: #d97706; 
+  --font: 'Pacifico', cursive;
+  --layout: grid;
+  --card-bg: #ffedd5;
+}
+
+.theme2 header select{
+  background:black;
+}
+.welcome-section{
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.theme2 .welcome-section{
+ background-image: linear-gradient(to right, #1f2937, #111827)
+}
+.theme3 .welcome-section{
+ background-image: linear-gradient(to right, #fbcfe8, #f472b633, #db27771a);
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  transition: all 0.3s ease;
+}
+.main-layout {
+   gap: 1rem;
+  padding: 1rem;
+}
+.theme-card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.main-layout {
+  gap: 1rem;
+  padding: 1rem;
+}
+.theme1 .main-layout {
+  display: block;
+}
+.theme2 .main-layout {
+  display: flex;
+  flex-direction: column;
+}
+.theme2 .product-card {
+  background-image: linear-gradient(to right, #1f2937, #111827);
+}
+
+@media (min-width: 768px) {
+  .theme2 .main-layout {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  .theme3 .main-layout {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
